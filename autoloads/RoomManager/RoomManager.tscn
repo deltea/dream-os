@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://52wmlq6x4voi"]
+[gd_scene load_steps=8 format=3 uid="uid://52wmlq6x4voi"]
 
 [ext_resource type="Script" path="res://autoloads/RoomManager/RoomManager.gd" id="1_nrr6i"]
+[ext_resource type="Shader" path="res://shaders/dithering.gdshader" id="2_rat6j"]
+[ext_resource type="Texture2D" uid="uid://cdnunui18bx10" path="res://assets/generic/pixel.png" id="3_wlwbk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8votf"]
+shader = ExtResource("2_rat6j")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="Animation" id="Animation_d5nhu"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8plmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ifvf4"]
+_data = {
+"RESET": SubResource("Animation_8plmj"),
+"transition": SubResource("Animation_d5nhu")
+}
 
 [node name="RoomManager" type="CanvasLayer"]
+layer = 50
 script = ExtResource("1_nrr6i")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_8votf")
+offset_right = 400.0
+offset_bottom = 240.0
+texture = ExtResource("3_wlwbk")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ifvf4")
+}
+autoplay = "transition"
