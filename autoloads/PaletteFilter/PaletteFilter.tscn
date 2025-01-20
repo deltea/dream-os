@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1ofacg4kaosx"]
+
+[ext_resource type="Script" path="res://autoloads/PaletteFilter/PaletteFilter.gd" id="1_r8c1b"]
+[ext_resource type="Texture2D" uid="uid://c2ysyuyjs11l8" path="res://palettes/gruvbox.png" id="2_1tccy"]
+[ext_resource type="Shader" path="res://shaders/palette_filter.gdshader" id="2_cgb74"]
+[ext_resource type="Texture2D" uid="uid://dh8234nw2p7av" path="res://assets/palette-input.png" id="4_75vox"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k4wap"]
+shader = ExtResource("2_cgb74")
+shader_parameter/num_colors = 8
+shader_parameter/precision = 0.1
+shader_parameter/palette_in = ExtResource("4_75vox")
+
+[node name="PaletteFilter" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_r8c1b")
+default_palette = ExtResource("2_1tccy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k4wap")
+offset_right = 400.0
+offset_bottom = 240.0

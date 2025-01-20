@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjaymhv1bftmd"]
+
+[ext_resource type="Script" path="res://scripts/room.gd" id="1_52rjc"]
+
+[node name="Room" type="CanvasLayer"]
+script = ExtResource("1_52rjc")
+metadata/_edit_vertical_guides_ = [200.0, 400.0]
+metadata/_edit_horizontal_guides_ = [120.0, 240.0]
