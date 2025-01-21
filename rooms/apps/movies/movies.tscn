@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpb3l3blhiq0t"]
+
+[ext_resource type="PackedScene" uid="uid://bjaymhv1bftmd" path="res://rooms/room.tscn" id="1_r8ufa"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_g4yxt"]
+
+[node name="Movies" instance=ExtResource("1_r8ufa")]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." index="1"]
+offset_right = 400.0
+offset_bottom = 240.0
+stream = SubResource("VideoStreamTheora_g4yxt")
+expand = true

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://co6hbq4phylaf"]
+
+[ext_resource type="Shader" path="res://shaders/dithering.gdshader" id="1_v0fbb"]
+[ext_resource type="Script" path="res://scenes/app_icon/app_icon.gd" id="2_5g14n"]
+[ext_resource type="Texture2D" uid="uid://bs27ajqgs7736" path="res://assets/app-icons/circle.png" id="2_xafdp"]
+[ext_resource type="Texture2D" uid="uid://cioh57wnddiyy" path="res://assets/app-icons/shadow.png" id="4_b8uea"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_paqcn"]
+resource_local_to_scene = true
+shader = ExtResource("1_v0fbb")
+shader_parameter/intensity = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vi0k"]
+shader = ExtResource("1_v0fbb")
+shader_parameter/intensity = 0.0
+
+[node name="AppIcon" type="TextureRect"]
+material = SubResource("ShaderMaterial_paqcn")
+texture = ExtResource("2_xafdp")
+stretch_mode = 3
+script = ExtResource("2_5g14n")
+
+[node name="Shadow" type="TextureRect" parent="."]
+self_modulate = Color(0.333333, 0.333333, 0.333333, 1)
+z_index = -1
+material = SubResource("ShaderMaterial_8vi0k")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 11.0
+offset_right = 16.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_b8uea")
+stretch_mode = 3
