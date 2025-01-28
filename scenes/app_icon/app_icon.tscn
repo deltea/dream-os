@@ -16,6 +16,9 @@ shader_parameter/intensity = 0.0
 
 [node name="AppIcon" type="TextureRect"]
 material = SubResource("ShaderMaterial_paqcn")
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(24, 24)
 texture = ExtResource("2_xafdp")
 stretch_mode = 3
 script = ExtResource("2_5g14n")
