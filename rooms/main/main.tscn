@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bs6ma4itd0vxs"]
+[gd_scene load_steps=13 format=3 uid="uid://bs6ma4itd0vxs"]
 
 [ext_resource type="PackedScene" uid="uid://bjaymhv1bftmd" path="res://rooms/room.tscn" id="1_35gcb"]
 [ext_resource type="Script" path="res://rooms/main/main.gd" id="2_xxkq5"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://co6hbq4phylaf" path="res://scenes/app_icon/app_icon.tscn" id="4_pq82w"]
 [ext_resource type="Shader" path="res://shaders/dithering.gdshader" id="5_igptn"]
 [ext_resource type="FontFile" uid="uid://cvxgfnahl2h0v" path="res://assets/fonts/m6x11.ttf" id="5_piabl"]
-[ext_resource type="Texture2D" uid="uid://c0syceb6mqlls" path="res://assets/app-icons/settings.png" id="6_f87dx"]
 [ext_resource type="Texture2D" uid="uid://dmtn620em3aye" path="res://assets/generic/rounded-rect.png" id="6_ss3ij"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c4hha"]
@@ -95,7 +94,6 @@ app_name = "movies"
 [node name="AppIcon4" parent="Apps" index="3" instance=ExtResource("4_pq82w")]
 material = SubResource("ShaderMaterial_yobd5")
 layout_mode = 2
-texture = ExtResource("6_f87dx")
 app_name = "settings"
 
 [node name="AppIcon5" parent="Apps" index="4" instance=ExtResource("4_pq82w")]
