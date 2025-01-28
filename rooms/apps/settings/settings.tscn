@@ -1,5 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddxoqt4hitrll"]
+[gd_scene load_steps=4 format=3 uid="uid://ddxoqt4hitrll"]
 
 [ext_resource type="PackedScene" uid="uid://bjaymhv1bftmd" path="res://rooms/room.tscn" id="1_gr2xm"]
+[ext_resource type="Texture2D" uid="uid://bw4v4kon8c4q4" path="res://assets/spiky.png" id="2_77u7v"]
+[ext_resource type="Script" path="res://rooms/apps/settings/settings.gd" id="2_my51e"]
 
 [node name="Settings" instance=ExtResource("1_gr2xm")]
+script = ExtResource("2_my51e")
+
+[node name="SectionBackground" type="ColorRect" parent="." index="2"]
+offset_right = 200.0
+offset_bottom = 240.0
+color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="Divider" type="TextureRect" parent="." index="3"]
+self_modulate = Color(0.333333, 0.333333, 0.333333, 1)
+texture_repeat = 2
+offset_left = 200.0
+offset_right = 216.0
+offset_bottom = 272.0
+texture = ExtResource("2_77u7v")
+stretch_mode = 1

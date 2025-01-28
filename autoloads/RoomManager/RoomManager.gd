@@ -16,12 +16,17 @@ var rooms = {
 @onready var rect: TextureRect = $TextureRect
 
 var current_room: Room
+var transitioning = false
 
 func _ready() -> void:
 	player.speed_scale = 1 / transition_time
 
 ## Change the current room to another room from the name of the room.
 func change_room(room_name: String):
+	if transitioning:
+		printerr("already transitioning")
+		return
+
 	if !rooms.has(room_name):
 		printerr(room_name + " is not a valid room")
 		return
@@ -34,10 +39,12 @@ func change_room(room_name: String):
 		return
 
 	player.play_backwards("transition")
+	transitioning = true
 	await Clock.wait(transition_time)
 
 	get_tree().change_scene_to_packed(scene)
 	print("changed room to " + room_name)
 
 	await Clock.wait(wait_time)
+	transitioning = false
 	player.play("transition")
